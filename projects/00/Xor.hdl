@@ -6,7 +6,7 @@
 // This file is supplied for those who wish to play with the Xor.hdl implementation
 // described in the Hardware Simulator Tutorial.
 // There are more efficient ways to document and implement the Xor logic,
-// but this implementation provides a good HDL exercise. 
+// but this implementation provides a good HDL exercise.
 
 /**
  *  Exclusive-or gate:

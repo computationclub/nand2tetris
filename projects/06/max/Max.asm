@@ -10,13 +10,13 @@
    @R1
    D=D-M            // D = first number - second number
    @OUTPUT_FIRST
-   D;JGT            // if D>0 (first is greater) goto output_first
+   D;JGT            // if D>0 (first is greater) goto output_firs
    @R1
    D=M              // D = second number
    @OUTPUT_D
    0;JMP            // goto output_d
 (OUTPUT_FIRST)
-   @R0             
+   @R0
    D=M              // D = first number
 (OUTPUT_D)
    @R2

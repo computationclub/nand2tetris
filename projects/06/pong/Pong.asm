@@ -147,7 +147,7 @@ A=M
 D=A
 @R13
 M=D
-@sys.init
+@sys.ini
 D=A
 @R14
 M=D
@@ -5563,7 +5563,7 @@ M=D
 D=A
 @R13
 M=D
-@bat.getleft
+@bat.getlef
 D=A
 @R14
 M=D
@@ -5589,7 +5589,7 @@ M=D
 D=A
 @R13
 M=D
-@bat.getright
+@bat.getrigh
 D=A
 @R14
 M=D
@@ -5616,7 +5616,7 @@ M=D
 D=A
 @R13
 M=D
-@ball.getleft
+@ball.getlef
 D=A
 @R14
 M=D
@@ -5644,7 +5644,7 @@ M=D
 D=A
 @R13
 M=D
-@ball.getright
+@ball.getrigh
 D=A
 @R14
 M=D
@@ -6010,7 +6010,7 @@ M=D
 D=A
 @R13
 M=D
-@output.printint
+@output.printin
 D=A
 @R14
 M=D
@@ -8449,7 +8449,7 @@ D=D-1
 AM=M+1
 A=A-1
 M=0
-@LOOP_math.sqrt
+@LOOP_math.sqr
 D;JGT
 @ARG
 A=M
@@ -20513,7 +20513,7 @@ M=D
 D=A
 @R13
 M=D
-@string.charat
+@string.chara
 D=A
 @R14
 M=D
@@ -20589,7 +20589,7 @@ M=D
 D=A
 @R13
 M=D
-@string.setint
+@string.setin
 D=A
 @R14
 M=D
@@ -27127,7 +27127,7 @@ D=D-1
 AM=M+1
 A=A-1
 M=0
-@LOOP_string.setint
+@LOOP_string.setin
 D;JGT
 @ARG
 A=M
@@ -27922,7 +27922,7 @@ M=D
 D=A
 @R13
 M=D
-@memory.init
+@memory.ini
 D=A
 @R14
 M=D
@@ -27940,7 +27940,7 @@ M=D
 D=A
 @R13
 M=D
-@math.init
+@math.ini
 D=A
 @R14
 M=D
@@ -27958,7 +27958,7 @@ M=D
 D=A
 @R13
 M=D
-@screen.init
+@screen.ini
 D=A
 @R14
 M=D
@@ -27976,7 +27976,7 @@ M=D
 D=A
 @R13
 M=D
-@output.init
+@output.ini
 D=A
 @R14
 M=D
@@ -27994,7 +27994,7 @@ M=D
 D=A
 @R13
 M=D
-@keyboard.init
+@keyboard.ini
 D=A
 @R14
 M=D
@@ -28030,7 +28030,7 @@ M=D
 D=A
 @R13
 M=D
-@sys.halt
+@sys.hal
 D=A
 @R14
 M=D
@@ -28340,7 +28340,7 @@ M=D
 D=A
 @R13
 M=D
-@output.printint
+@output.printin
 D=A
 @R14
 M=D
@@ -28358,7 +28358,7 @@ M=D
 D=A
 @R13
 M=D
-@sys.halt
+@sys.hal
 D=A
 @R14
 M=D
