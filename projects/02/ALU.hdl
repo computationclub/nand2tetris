@@ -52,5 +52,9 @@ CHIP ALU {
         Mux4Way16 (a=y, b=not-y, c=false, d=true, sel[0]=ny, sel[1]=zy, out=y-result);
 
         Mux16 (a=x-and-y, b=x-add-y, sel=f, out=result);
-        Mux16 (a=result, b=not-result, sel=no, out=out);
+        Mux16 (a=result, b=not-result, sel=no, out=out, out[15]=ng, out[0..7]=h1, out[8..15]=h2);
+
+        Or8Way (in=h1, out=h3);
+        Or8Way (in=h2, out=h4);
+        Nor (a=h3, b=h4, out=zr);
 }
