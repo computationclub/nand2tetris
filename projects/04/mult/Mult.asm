@@ -9,10 +9,10 @@
 // set R2 to 0
 @R2
 M=0
-(LOOP)
 // jump to "end" if R0 is zero
 @R0
 D=M
+(LOOP)
 @END
 D;JEQ
 // add R1 to R2
@@ -22,7 +22,7 @@ D=M
 M=D+M
 // decrement R0
 @R0
-M=M-1
+MD=M-1
 // jump to "loop"
 @LOOP
 0;JMP
