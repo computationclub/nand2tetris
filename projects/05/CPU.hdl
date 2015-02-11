@@ -44,18 +44,15 @@ CHIP CPU {
     // 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
     //  i  x  x  a  c  c  c  c  c  c  d  d  d  j  j  j
 
+    Decoder(instruction=instruction, loadA=load-a, loadD=load-d, writeM=writeM);
+
     // load instruction or computation into A
     Mux16(a=instruction, b=alu-out, sel=instruction[15], out=in-a);
-
-    Not(in=instruction[15], out=is-a-instruction);
-    Or(a=is-a-instruction, b=instruction[5], out=load-a);
 
     ARegister(in=in-a, load=load-a, out=a-register, out[0..14]=addressM);
 
     // load A or M into ALU
     Mux16(a=a-register, b=inM, sel=instruction[12], out=a-or-m);
-
-    And(a=instruction[15], b=instruction[4], out=load-d);
 
     DRegister(in=alu-out, load=load-d, out=d-register);
 
@@ -74,19 +71,7 @@ CHIP CPU {
       ng=negative
     );
 
-    Or(a=negative, b=zero, out=not-positive);
-    Not(in=not-positive, out=positive);
-
-    And(a=instruction[2], b=negative, out=jump-less-than);
-    And(a=instruction[1], b=zero, out=jump-equal-to);
-    And(a=instruction[0], b=positive, out=jump-greater-than);
-
-    Or(a=jump-less-than, b=jump-equal-to, out=jump-first);
-    Or(a=jump-first, b=jump-greater-than, out=jump-second);
-    And(a=jump-second, b=instruction[15], out=jump);
+    Jump(instruction=instruction, ng=negative, zr=zero, out=jump);
 
     PC(in=a-register, load=jump, inc=true, reset=reset, out[0..14]=pc);
-
-    // Only write to memory if this is a computation instruction
-    And(a=instruction[15], b=instruction[3], out=writeM);
 }
