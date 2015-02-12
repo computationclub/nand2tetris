@@ -44,7 +44,7 @@ CHIP CPU {
     // 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
     //  i  x  x  a  c  c  c  c  c  c  d  d  d  j  j  j
 
-    Decoder(instruction=instruction, loadA=load-a, loadD=load-d, writeM=writeM);
+    Decoder(i=instruction[15], dest=instruction[3..5], loadA=load-a, loadD=load-d, writeM=writeM);
 
     // load instruction or computation into A
     Mux16(a=instruction, b=alu-out, sel=instruction[15], out=in-a);
@@ -71,7 +71,7 @@ CHIP CPU {
       ng=negative
     );
 
-    Jump(instruction=instruction, ng=negative, zr=zero, out=jump);
+    Jump(i=instruction[15], j=instruction[0..2], ng=negative, zr=zero, out=jump);
 
     PC(in=a-register, load=jump, inc=true, reset=reset, out[0..14]=pc);
 }

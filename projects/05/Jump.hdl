@@ -1,18 +1,19 @@
 CHIP Jump {
-  IN  instruction[16], // Instruction for execution
-      ng,              // ng output of the ALU
-      zr;              // zr output of the ALU
+  IN  i,    // Instruction type
+      j[3], // Jump instructions
+      ng,   // ng output of the ALU
+      zr;   // zr output of the ALU
 
-  OUT out;             // 1 if jumping, 0 otherwise
+  OUT out;  // 1 if jumping, 0 otherwise
 
   PARTS:
   Or(a=ng, b=zr, out=not-positive);
   Not(in=not-positive, out=positive);
 
-  And(a=instruction[2], b=ng, out=jlt);
-  And(a=instruction[1], b=zr, out=jeq);
-  And(a=instruction[0], b=positive, out=jgt);
+  And(a=j[2], b=ng, out=jlt);
+  And(a=j[1], b=zr, out=jeq);
+  And(a=j[0], b=positive, out=jgt);
   Or(a=jlt, b=jeq, out=jle);
   Or(a=jle, b=jgt, out=jump);
-  And(a=jump, b=instruction[15], out=out);
+  And(a=jump, b=i, out=out);
 }
