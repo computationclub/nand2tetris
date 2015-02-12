@@ -1,0 +1,16 @@
+CHIP Decoder {
+  IN  i,       // Instruction type
+      dest[3]; // Instruction destination
+
+  OUT loadA,           // 1 if loading A, 0 otherwise
+      loadD,           // 1 if loading D, 0 otherwise
+      writeM;          // Write to M?
+
+  PARTS:
+  Not(in=i, out=is-a-instruction);
+  Or(a=is-a-instruction, b=dest[2], out=loadA);
+
+  And(a=i, b=dest[1], out=loadD);
+
+  And(a=i, b=dest[0], out=writeM);
+}
